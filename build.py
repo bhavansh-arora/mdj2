@@ -4,9 +4,15 @@
 Run `python3 build.py` to regenerate every page in the repo root from the shared
 layout and the page content below. No dependencies beyond Python 3.8+.
 """
+import hashlib
 from pathlib import Path
 
 OUT = Path(__file__).parent
+
+
+def asset_version(rel):
+    """Short content hash so browsers fetch fresh CSS/JS after every deploy."""
+    return hashlib.md5((OUT / rel).read_bytes()).hexdigest()[:10]
 
 # --------------------------------------------------------------------------
 # Business facts (single source of truth)
@@ -272,7 +278,7 @@ def page(filename, title, description, body):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/styles.css?v={asset_version("assets/css/styles.css")}">
 <script type="application/ld+json">{schema}</script>
 </head>
 <body>
@@ -281,7 +287,7 @@ def page(filename, title, description, body):
 {body}
 </main>
 {footer()}
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js?v={asset_version("assets/js/main.js")}" defer></script>
 </body>
 </html>
 '''
