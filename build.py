@@ -136,12 +136,12 @@ NAV = [
 ]
 
 MEGA = [
-    ("mortgages.html#first-time-buyers", "key", "First-time buyers", "From deposit to keys, step by step"),
+    ("mortgages.html#first-time-buyers", "key", "First-time buyers", "From deposit to keys"),
     ("mortgages.html#moving-home", "truck", "Moving home", "Port, borrow more or start fresh"),
-    ("mortgages.html#remortgage", "refresh", "Remortgaging", "Don’t drift onto your lender’s SVR"),
-    ("specialist.html#self-employed", "briefcase", "Self-employed", "Contractors, directors & sole traders"),
+    ("mortgages.html#remortgage", "refresh", "Remortgaging", "Never drift onto a costly SVR"),
+    ("specialist.html#self-employed", "briefcase", "Self-employed", "Directors, contractors & more"),
     ("specialist.html#later-life", "sun", "Later life & retirement", "Borrowing into retirement"),
-    ("specialist.html", "layers", "All specialist lending", "Commercial, foreign national & more"),
+    ("specialist.html", "layers", "All specialist lending", "Commercial, visas & more"),
 ]
 
 
@@ -151,10 +151,10 @@ def header(active):
         cur = ' aria-current="page"' if active == href or (href == "mortgages.html" and active == "specialist.html") else ""
         if href == "mortgages.html":
             items = "".join(
-                f'<a class="mega-link" href="{h}"><span class="mega-icon">{ic(i)}</span><span><strong>{t}</strong><span>{d}</span></span></a>'
+                f'<a class="mega-link" href="{h}"><span class="mega-icon">{ic(i)}</span><span class="mega-text"><strong>{t}</strong><small>{d}</small></span></a>'
                 for h, i, t, d in MEGA)
-            links.append(f'''<div class="nav-item"><a class="nav-link" href="{href}"{cur}>{label} {ic("chev")}</a>
-<div class="mega">{items}<div class="mega-feature"><div><span class="eyebrow">Free first meeting</span><h4>Not sure where to start?</h4><p>Book a 30-minute discovery call and we’ll map out your options, with no obligation.</p></div><a class="btn btn-gold btn-sm" href="{BIZ["calendly"]}" target="_blank" rel="noopener">Book a call {ARROW}</a></div></div></div>''')
+            links.append(f'''<div class="nav-item has-mega"><a class="nav-link" href="{href}"{cur} aria-haspopup="true">{label} {ic("chev")}</a>
+<div class="mega"><div class="mega-links">{items}</div><div class="mega-feature"><div><span class="eyebrow">No obligation</span><h4>Not sure where to start?</h4><p>Book a 30-minute discovery call and we’ll map out your options, with no obligation.</p></div><a class="btn btn-gold btn-sm" href="{BIZ["calendly"]}" target="_blank" rel="noopener">Book a call {ARROW}</a></div></div></div>''')
         else:
             links.append(f'<div class="nav-item"><a class="nav-link" href="{href}"{cur}>{label}</a></div>')
 
