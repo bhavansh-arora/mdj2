@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Static site generator for the MDJ Mortgages concept site.
 
-Run `python3 build.py` to regenerate every page in ./site from the shared
+Run `python3 build.py` to regenerate every page in the repo root from the shared
 layout and the page content below. No dependencies beyond Python 3.8+.
 """
 from pathlib import Path
 
-OUT = Path(__file__).parent / "site"
+OUT = Path(__file__).parent
 
 # --------------------------------------------------------------------------
 # Business facts (single source of truth)

@@ -3,7 +3,7 @@
 A premium, multi-page website concept for **MDJ Mortgages Ltd** (Basingstoke), built by Code Bunny.
 The design picks up the black and gold of their 2026 Quality Business Awards branding: an editorial serif (Fraunces) paired with a clean sans (Manrope).
 
-## Pages (`site/`)
+## Pages
 
 | Page | Highlights |
 | --- | --- |
@@ -23,14 +23,14 @@ Every page also has a sticky header with a mega-menu, a mobile drawer, a floatin
 
 ## Editing & building
 
-Content and layout live in `build.py`; styles in `site/assets/css/styles.css`; behaviour in `site/assets/js/main.js`.
+Content and layout live in `build.py`; styles in `assets/css/styles.css`; behaviour in `assets/js/main.js`.
 
 ```bash
-python3 build.py                              # regenerate site/*.html
-cd site && python3 -m http.server 8000        # preview at http://localhost:8000
+python3 build.py                 # regenerate the *.html pages
+python3 -m http.server 8000      # preview at http://localhost:8000
 ```
 
-There is no framework and no dependencies, so the `site/` folder can be uploaded to any static host as-is.
+There is no framework and no dependencies. `index.html` sits at the repo root, so GitHub Pages, Netlify or Vercel serve the site directly from this repo.
 
 ### Hooking up the enquiry form
 Set `data-endpoint` on `<form id="enquiry">` in `build.py` (for example a Formspree or Basin URL) and rebuild.
