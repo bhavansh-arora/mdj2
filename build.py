@@ -430,11 +430,15 @@ def home():
       </div>
     </div>
     <div class="hero-visual reveal reveal-d2">
-      <div class="hero-ring"></div>
-      <div class="hero-frame"><img src="assets/img/mark.webp" alt="Mark Jones, Managing Director of MDJ Mortgages" width="900" height="720" fetchpriority="high"></div>
-      <img class="fc-badge" src="assets/img/award-2026.webp" alt="Quality Business Awards 2026 badge" width="128" height="108">
-      <div class="float-card fc-1"><span class="fc-icon">{ic("calendar")}</span><div><strong>Free first meeting</strong><small>No obligation, no pressure</small></div></div>
-      <div class="float-card fc-2"><span class="fc-icon">{ic("search")}</span><div><strong>Whole of market</strong><small>Thousands of deals compared</small></div></div>
+      <div class="hero-photo">
+        <div class="hero-ring"></div>
+        <div class="hero-frame"><img src="assets/img/mark.webp" alt="Mark Jones, Managing Director of MDJ Mortgages" width="900" height="720" fetchpriority="high"></div>
+      </div>
+      <div class="hero-badges">
+        <img class="hero-award" src="assets/img/award-2026.webp" alt="Quality Business Awards 2026 winner badge" width="96" height="81">
+        <div class="float-card"><span class="fc-icon">{ic("calendar")}</span><div><strong>Free first meeting</strong><small>No obligation, no pressure</small></div></div>
+        <div class="float-card"><span class="fc-icon">{ic("search")}</span><div><strong>Whole of market</strong><small>1,000s of deals compared</small></div></div>
+      </div>
     </div>
   </div>
 </section>

@@ -59,6 +59,13 @@
     map.forEach((_, id) => { const s = document.getElementById(id); s && spy.observe(s); });
   }
 
+  /* ---------- Keep the WhatsApp button off the hero ---------- */
+  const wa = $('.fab .wa'), hero = $('.hero, .page-hero');
+  if (wa && hero) {
+    wa.classList.add('away');
+    new IntersectionObserver(([en]) => wa.classList.toggle('away', en.isIntersecting)).observe(hero);
+  }
+
   /* ---------- Back to top ---------- */
   const topBtn = $('.fab .top');
   topBtn && addEventListener('scroll', () => topBtn.classList.toggle('show', scrollY > 900), { passive: true });
