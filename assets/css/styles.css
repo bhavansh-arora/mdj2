@@ -208,14 +208,14 @@ section { position: relative; }
 .hero-proof small { color: var(--muted-light); font-size: .88rem; display: block; }
 .hero-proof strong { font-size: .98rem; }
 
-.hero-visual { position: relative; width: 100%; max-width: 500px; justify-self: end; display: flex; flex-direction: column; gap: 22px; }
-.hero-photo { position: relative; aspect-ratio: 1 / 1; margin: 14px 14px 0; }
+.hero .container > * { min-width: 0; }
+.hero-visual { position: relative; display: block; width: 100%; max-width: 500px; justify-self: end; padding: 14px 14px 0; }
+.hero-photo { position: relative; display: block; width: 100%; height: 0; padding-bottom: 100%; }
 .hero-frame { position: absolute; inset: 0; border-radius: 240px 240px 28px 28px; overflow: hidden; box-shadow: var(--shadow-lg); isolation: isolate; transform: translateZ(0); -webkit-mask-image: -webkit-radial-gradient(white, black); }
 .hero-frame img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 30% 30%; border-radius: inherit; }
-@supports not (aspect-ratio: 1 / 1) { .hero-photo { height: 0; padding-bottom: 100%; } }
 .hero-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,13,11,.35), transparent 35%); }
 .hero-ring { position: absolute; inset: -14px; border: 1px solid rgba(201,162,90,.45); border-radius: 254px 254px 40px 40px; pointer-events: none; }
-.hero-badges { display: grid; grid-template-columns: auto 1fr; gap: 10px 16px; align-items: stretch; margin: 0 14px; }
+.hero-badges { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px 16px; align-items: stretch; margin-top: 36px; }
 .hero-award { grid-row: span 2; width: 104px; height: auto; align-self: center; filter: drop-shadow(0 12px 22px rgba(0,0,0,.45)); }
 .float-card { background: rgba(255,255,255,.04); border: 1px solid var(--line-dark); border-radius: 14px; padding: 10px 14px; display: flex; gap: 12px; align-items: center; min-width: 0; }
 .float-card .fc-icon { width: 36px; height: 36px; border-radius: 12px; background: var(--gold-grad); color: var(--ink); display: flex; align-items: center; justify-content: center; flex: none; }
